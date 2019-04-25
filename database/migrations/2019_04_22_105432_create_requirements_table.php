@@ -15,6 +15,9 @@ class CreateRequirementsTable extends Migration
     {
         Schema::create('requirements', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('payment_id');
+            $table->integer('photo')->default(0);
+            $table->integer('is_complete')->default(0);
             $table->timestamps();
         });
     }
