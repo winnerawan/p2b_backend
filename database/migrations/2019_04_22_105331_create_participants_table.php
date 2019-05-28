@@ -14,10 +14,11 @@ class CreateParticipantsTable extends Migration
     public function up()
     {
         Schema::create('participants', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned(false);
             $table->string('email')->unique();
             $table->string('password');
             $table->string('fcm_token');
+            $table->integer('is_student')->default(1);
             $table->timestamps();
         });
     }

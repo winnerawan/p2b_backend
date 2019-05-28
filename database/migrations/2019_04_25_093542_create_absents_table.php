@@ -13,11 +13,11 @@ class CreateAbsentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('absents', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('student_id');
-            $table->timestamps();
-        });
+        // Schema::create('absents', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->bigInteger('student_id');
+        //     $table->timestamps();
+        // });
     }
 
     /**

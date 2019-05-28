@@ -13,13 +13,13 @@ class CreateRequirementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('requirements', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('payment_id');
-            $table->integer('photo')->default(0);
-            $table->integer('is_complete')->default(0);
-            $table->timestamps();
-        });
+        // Schema::create('requirements', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->bigInteger('payment_id');
+        //     $table->integer('photo')->default(0);
+        //     $table->integer('is_complete')->default(0);
+        //     $table->timestamps();
+        // });
     }
 
     /**

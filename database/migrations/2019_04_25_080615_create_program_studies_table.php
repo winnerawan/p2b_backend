@@ -14,8 +14,8 @@ class CreateProgramStudiesTable extends Migration
     public function up()
     {
         Schema::create('program_studies', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('faculty_id');
+            $table->bigIncrements('id')->unsigned(false);
+            $table->bigInteger('faculty_id');
             $table->string('name');
             $table->timestamps();
         });

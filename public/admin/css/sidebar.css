@@ -119,7 +119,7 @@ body{
     height: 42px;
 }    
 #sidebar {
-  background: #fff;
+  background: rgb(0, 70, 137);
   position: fixed;
   width: 20%;
   height: 100%;
@@ -131,7 +131,7 @@ body{
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   z-index: 1000;
-  color :rgba(0,0,0,.38);  
+  color :#ffffff;  
   box-shadow: 0 6px 18px rgba(0,118,255,0.18) !important;
   
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.05); */
@@ -165,7 +165,7 @@ body{
 #sidebar ul li a {
   padding: 15px 20px;
   font-size: 16px;
-  color :rgba(0,0,0,.38);    
+  color :#ffffff;    
   text-decoration: none;
   display: inline-block;
   -webkit-transition: all 0.5s ease;

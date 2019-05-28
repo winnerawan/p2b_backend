@@ -1,0 +1,49 @@
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ CUSTOM SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+.custom.tparrows {
+	cursor:pointer;
+	background:#000;
+	background:rgba(0,0,0,0.5);
+	width:40px;
+	height:40px;
+	position:absolute;
+	display:block;
+	z-index:100;
+}
+.custom.tparrows:hover {
+	background:#000;
+}
+.custom.tparrows:before {
+	font-family: "revicons";
+	font-size:15px;
+	color:#fff;
+	display:block;
+	line-height: 40px;
+	text-align: center;
+}
+.custom.tparrows.tp-leftarrow:before {
+	content: "\e824";
+}
+.custom.tparrows.tp-rightarrow:before {
+	content: "\e825";
+}
+
+
+
+
+
+/* THUMBS */
+
+
+/* TABS */
+
+

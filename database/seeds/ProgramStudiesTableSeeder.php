@@ -107,6 +107,6 @@ class ProgramStudiesTableSeeder extends Seeder
                 'name' => 'Teknik Elektro',
                 'faculty_id' => 4,
             ]
-        ])
+        ]);
     }
 }

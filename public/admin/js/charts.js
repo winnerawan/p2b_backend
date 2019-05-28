@@ -2,13 +2,13 @@ var ctx = document.getElementById("revenueChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-      labels: ["January", "February", "March", "April", "May", "June"],
+      labels: ["AAA", "February", "March", "April", "May", "June"],
       datasets: [{
           label: 'Revenue Six Month',
           data: [12, 19, 3, 5, 2, 3],
           pointRadius:0,
           backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
+              'rgba(257, 106, 252, 0.2)',
               'rgba(54, 162, 235, 0.2)',
               'rgba(255, 206, 86, 0.2)',
               'rgba(75, 192, 192, 0.2)',
@@ -16,7 +16,7 @@ var myLineChart = new Chart(ctx, {
               'rgba(255, 159, 64, 0.2)'
           ],
           borderColor: [
-              'rgb(255,82,84)'
+              'rgb(57, 106, 252)'
           ],
           borderWidth: 3,
           pointDot: false
@@ -37,7 +37,7 @@ var ctx = document.getElementById("revenueChart2");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-      labels: ["January", "February", "March", "April", "May", "June"],
+      labels: ["AAA", "February", "March", "April", "May", "June"],
       datasets: [{
           label: 'Revenue Six Month',
           data: [12, 19, 3, 5, 2, 3],
@@ -91,7 +91,7 @@ var ctx = document.getElementById("revenueChart3");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["January", "February", "March", "April", "May", "June"],  
+        labels: ["AAA", "February", "March", "April", "May", "June"],  
         datasets: [{
             label: 'Revenue Six Month',
             data: [12, 19, 3, 5, 2, 3],

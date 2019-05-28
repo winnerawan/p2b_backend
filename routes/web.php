@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::get('/about', 'FrontPageController@about');
+Route::get('/contact', 'FrontPageController@contact');
 
+Route::get('/logout', function(){
+   Auth::logout();
+   return Redirect::to('/');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/participants', 'ParticipantController');
+Route::resource('/generals', 'GeneralController');
+Route::resource('/students', 'StudentController');
+Route::resource('/payments', 'PaymentController');
+Route::get('/notifications', 'NotificationController@index');
+Route::post('/notifications', 'NotificationController@store');
+Route::get('/vision', 'VisionController@annotateImage');
