@@ -50,8 +50,8 @@ class HomeController extends Controller
     }
 
     static function getPaid() {
-        $varified = DB::select('SELECT COUNT(*) as verified FROM `payments` WHERE payments.is_paid = 1');
-        $not_varified = DB::select('SELECT COUNT(*) as not_verified FROM `payments` WHERE payments.is_paid = 0');
+        $varified = DB::select('SELECT COUNT(*) as verified FROM `payments` WHERE payments.status = 1');
+        $not_varified = DB::select('SELECT COUNT(*) as not_verified FROM `payments` WHERE payments.status = 0');
         $not_upload = DB::select('SELECT COUNT(*) as not_upload FROM `participants`');
 
         $not_upload = $not_upload[0]->not_upload - ($not_varified[0]->not_verified + $varified[0]->verified);

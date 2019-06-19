@@ -112,8 +112,8 @@
                                                                         <td>{{$student->nim}}</td>
                                                                         <td>{{$student->fullname}}</td>
                                                                         <td>{{$student->dob}}</td>
-                                                                        <td>{{$student->faculty}}</td>
-                                                                        <td>{{$student->program_study}}</td>
+                                                                        <td>{{$student->program->faculty->name}}</td>
+                                                                        <td>{{$student->program->name}}</td>
                                                                         <td>
                                                                             <a class="btn btn-sm btn-outline-primary" href="{{url('students/'.$student->id.'/edit')}}">
                                                                                 <i class="la la-edit"></i>

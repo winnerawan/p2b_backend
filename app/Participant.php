@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Participant extends Model
+class Participant extends Authenticatable
 {
+    protected $fillable = [
+        'email', 'password',
+    ];
+
     public function student() {
         return $this->hasMany(Student::class);
     }
