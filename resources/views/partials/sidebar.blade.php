@@ -13,7 +13,7 @@
                 <li data-sidebar="dashboard"><a class="py-3 px-3" href="{{url('home')}}"><i class="la la-dashboard"></i><span>Dashboard</span></a></li>
                 <li data-sidebar="widgets"><a class="py-3 px-3" href="{{url('participants')}}"><i class="la la-users"></i><span>Peserta</span></a></li>
                 <li data-sidebar="charts"><a class="py-3 px-3" href="{{url('payments')}}"><i class="la la-money"></i><span>Pembayaran</span></a></li>
-                <li data-sidebar="elements"><a class="py-3 px-3" href="{{url('requirements')}}"><i class="la la-pencil-square"></i><span>Nilai</span></a></li>
+                <li data-sidebar="elements"><a class="py-3 px-3" href="{{url('grades')}}"><i class="la la-pencil-square"></i><span>Nilai</span></a></li>
                 <li data-sidebar="forms"><a class="py-3 px-3" href="{{url('notifications')}}"><i class="la la-bell"></i><span>Notifikasi</span></a></li>
                 <li data-sidebar="setting"><a class="py-3 px-3" href="{{url('settings')}}"><i class="la la-gears"></i><span>Settings</span></a></li>
             </ul>

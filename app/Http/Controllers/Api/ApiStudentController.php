@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Image;
 
 class ApiStudentController extends Controller
 {
@@ -43,7 +44,7 @@ class ApiStudentController extends Controller
         }
 
 
-        public function insertDataStudent(Request $request) {
+    public function insertDataStudent(Request $request) {
             $student = new \App\Student();
             $student->participant_id = $request->participant_id;
             $student->program_id = $request->program_id;
@@ -60,7 +61,7 @@ class ApiStudentController extends Controller
 
         }
 
-        public function insertDataGeneral(Request $request) {
+    public function insertDataGeneral(Request $request) {
             $general = new \App\General();
             $general->participant_id = $request->participant->id;
             $general->no_reg = $request->no_reg;
@@ -75,4 +76,36 @@ class ApiStudentController extends Controller
             }
             return response()->json(['error' => true]); 
         }
+
+    public function pay(Request $request) {
+        $payment = new \App\Payment();
+        $payment->participant_id = $request->participant_id;
+        $payment->bank_id = $request->bank_id;
+        $payment->no_ref = $request->no_ref;
+        $payment->proof_image = ApiStudentController::upload_image($request);
+        $payment->status = 0;
+
+        $payment->save();
+
+        if ($payment) {
+                return response()->json(['error' => false, 'payment' => $payment]); 
+            }
+        return response()->json(['error' => true]);
+    }    
+
+
+    public static function upload_image(Request $request) {
+        // validate($request, [
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        // ]);
+    
+        $image = $request->file('proof_image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $location = public_path('images/proofs/' . $filename);
+        // $location = "/var/www/helb/service/public/uploads/cards/" .$filename;
+        $url_image = "https://api.letshelb.me/uploads/cards/" .$filename;
+        Image::make($image)->resize(800, 600)->save($location);
+    
+        return $url_image;
+    }
 }

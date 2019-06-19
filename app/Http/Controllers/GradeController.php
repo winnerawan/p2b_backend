@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class GradeController extends Controller
 {
@@ -19,6 +20,7 @@ class GradeController extends Controller
             'students' => $students,
             'generals' => $generals
         ]);
+
     }
 
     /**

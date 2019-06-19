@@ -54,7 +54,7 @@ class PaymentController extends Controller
     public function show(Request $request, $id)
     {
         $payment = \App\Payment::findOrFail($id);
-        $payment->is_paid = 100;
+        $payment->status = 100;
         $public = base_path().'/public/images/';
         $path = $public . $payment->proof_image;
         $file = File::get($path);
