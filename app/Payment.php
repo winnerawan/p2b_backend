@@ -19,7 +19,7 @@ class Payment extends Model
         $payments = DB::select('SELECT p.id, g.participant_id, g.fullname, g.no_reg, g.nim, b.name as bank_name, 
                         p.no_ref, p.proof_image, p.status FROM students g INNER JOIN payments p ON g.participant_id = p.participant_id 
                         INNER JOIN participants ON g.participant_id = participants.id INNER JOIN banks as b ON b.id = p.bank_id 
-                        WHERE participants.is_student = 1');
+                        WHERE participants.is_student = 1 AND p.status = 0');
         return $payments;
     }
 
@@ -27,7 +27,9 @@ class Payment extends Model
         $payments = DB::select('SELECT p.id, g.participant_id, g.fullname, g.no_reg, g.nik, b.name as bank_name, 
                         p.no_ref, p.proof_image, p.status FROM generals g INNER JOIN payments p ON g.participant_id = p.participant_id 
                         INNER JOIN participants ON g.participant_id = participants.id INNER JOIN banks as b ON b.id = p.bank_id 
-                        WHERE participants.is_student = 0');
+                        WHERE participants.is_student = 0 AND p.status = 0');
         return $payments;
     }
+
+    
 }

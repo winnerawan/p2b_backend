@@ -14,13 +14,9 @@ class PaymentController extends Controller
     public function index()
     {
         $public = base_path().'/public/images/';
-        $path = $public;
-        $vision = 'XXX';
         return view('admin.payments.index')->with([
             'student_payments' => \App\Payment::getStudentPayments(),
             'general_payments' => \App\Payment::getGeneralPayments(),
-            'path' => $path,
-            'vision' => $vision
             ]);
     }
 
@@ -54,14 +50,8 @@ class PaymentController extends Controller
     public function show(Request $request, $id)
     {
         $payment = \App\Payment::findOrFail($id);
-        $payment->status = 100;
-        $public = base_path().'/public/images/';
-        $path = $public . $payment->proof_image;
-        $file = File::get($path);
-        $type = File::mimeType($path);
         
-        $vision = 'AAAAA';
-        return view('admin.payments.show', compact(['vision', 'path', 'payment']))->renderSections()['dashboard'];
+        return view('admin.payments.show', compact(['payment']))->renderSections()['dashboard'];
     }
 
     /**
@@ -84,7 +74,10 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $payment = \App\Payment::findOrFail($id);
+        $payment->status = 1;
+        $payment->save();
+        return redirect('payments');
     }
 
     /**
@@ -95,7 +88,17 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $payment = \App\Payment::findOrFail($id);
+        $payment->delete();
+        return redirect('payments');
+    }
+
+    public function acc($id)
+    {
+        $payment = \App\Payment::findOrFail($id);
+        $payment->status = 1;
+        $payment->save();
+        return redirect('payments');
     }
 
 

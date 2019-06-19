@@ -14,11 +14,13 @@ class GradeController extends Controller
      */
     public function index()
     {
-        $students = \App\Student::completed();
-        $generals = \App\General::completed();
+        $students = \App\Student::alreadyPaid();
+        $generals = \App\General::alreadyPaid();
+        $grades = \App\Grade::all();
         return view('admin.grades.index')->with([
             'students' => $students,
-            'generals' => $generals
+            'generals' => $generals,
+            'grades' => $grades
         ]);
 
     }
