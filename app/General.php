@@ -11,6 +11,10 @@ class General extends Model
         return $this->belongsTo(Participant::class);
     }
 
+    public function payments() {
+        return $this->hasMany(Payment::class);
+    }
+
     public static function alreadyPaid() {
         $payments = DB::select('SELECT p.id, g.participant_id, g.fullname, g.no_reg, g.nik, b.name as bank_name, 
                         p.no_ref, p.proof_image, p.status FROM generals g INNER JOIN payments p ON g.participant_id = p.participant_id 

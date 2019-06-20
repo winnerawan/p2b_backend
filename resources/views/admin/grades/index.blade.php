@@ -22,6 +22,12 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="general-tab" data-toggle="tab" href="#general-icon" role="tab" aria-controls="general" aria-selected="false"><i class="la la-user"></i> Umum</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="gradestudent-tab" data-toggle="tab" href="#gradestudent-icon" role="tab" aria-controls="gradestudent" aria-selected="false"><i class="la la-graduation-cap"></i> Input Nilai Mahasiswa</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="gradegeneral-tab" data-toggle="tab" href="#gradegeneral-icon" role="tab" aria-controls="gradegeneral" aria-selected="false"><i class="la la-graduation-cap"></i> Input Nilai Umum</a>
+                                                </li>
                                             </ul>
                                             <div class="tab-content" id="myTabContent">
                                                 
@@ -31,41 +37,32 @@
                                                             <thead>
                                                                 <tr>
                                                                 <th scope="col">#</th>
-                                                                <th scope="col">No Reg</th>
+                                                                <th scope="col">Nama</th>
                                                                 <th scope="col">NIM</th>
-                                                                <th scope="col">Nama Lengkap</th>
-                                                                <th scope="col">BANK</th>
-                                                                <th scope="col">NO REF</th>
-                                                                <th scope="col">Bukti</th>
+                                                                <th scope="col">Listening</th>
+                                                                <th scope="col">Grammar</th>
+                                                                <th scope="col">Reading</th>
+                                                                <th scope="col">Total</th>
                                                                 <th scope="col"><i class="la la-ellipsis-h"></i></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach ($grades as $grade)
+                                                                @foreach ($grade_students as $grade)
                                                                     <tr>
-                                                                        <th scope="row">{{$student->id}}</th>
-                                                                        <td>{{$payment->no_reg}}</td> 
-                                                                        <td>{{$payment->nim}}</td>
-                                                                        <td>{{$payment->fullname}}</td> 
-                                                                        <td>{{$payment->bank_name}}</td>
-                                                                        <td>{{$payment->no_ref}}</td>
-                                                                        <td><a href="{{url('')}}"><img src="{{ $payment->proof_image }}" width="30px;" height="30px;"/></a></td>
+                                                                        <th scope="row">{{$grade->id}}</th>
+                                                                        <th scope="row">{{$grade->fullname}}</th>
+                                                                        <td>{{$grade->nim}}</td>
+                                                                        <td>{{$grade->listening}}</td>
+                                                                        <td>{{$grade->grammar}}</td> 
+                                                                        <td>{{$grade->reading}}</td>
+                                                                        <td>{{$grade->total_score}}</td>
                                                                         <td>
-                                                                            {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
+                                                                            {!! Form::open(['route' => ['grades.show', $grade->id], 'method' => 'GET']) !!}   
                                                                             <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                 <i class="la la-eye"></i>
                                                                             </button>
                                                                             {!! Form::close() !!}
-                                                                            {!! Form::open(['route' => ['payments.update', $payment->id], 'method' => 'PUT']) !!}   
-                                                                            <button type="submit" class="btn btn-sm btn-outline-primary">
-                                                                                <i class="la la-check"></i>
-                                                                            </button>
-                                                                            {!! Form::close() !!}
-                                                                            {!! Form::open(['route' => ['payments.destroy', $payment->id], 'method' => 'DELETE']) !!}   
-                                                                            <button class="btn btn-sm btn-secondary btn-danger" type="submit">
-                                                                                <i class="la la-trash-o"></i>
-                                                                            </button>
-                                                                            {!! Form::close() !!}
+                                                                            
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
@@ -75,43 +72,120 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="general-icon" role="tabpanel" aria-labelledby="general-tab">
                                                     <div class="col-sm-12">
-                                                        <table class="table">
-                                                            <thead>
-                                                                <tr>
-                                                                <th scope="col">#</th>
-                                                                <th scope="col">No Reg</th>
-                                                                <th scope="col">NIK</th>
-                                                                <th scope="col">Nama Lengkap</th>
-                                                                <th scope="col">BANK</th>
-                                                                <th scope="col">NO REF</th>
-                                                                <th scope="col">Bukti</th>
-                                                                <th scope="col"><i class="la la-ellipsis-h"></i></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                @foreach ($general_payments as $payment)
-                                                                    <tr>
-                                                                        <th scope="row">{{$payment->id}}</th>
-                                                                        <td>{{$payment->no_reg}}</td>
-                                                                        <td>{{$payment->nik}}</td>
-                                                                        <td>{{$payment->fullname}}</td>
-                                                                        <td>{{$payment->bank_name}}</td>
-                                                                        <td>{{$payment->no_ref}}</td>
-                                                                        <td><a href="#" value="{{ action('PaymentController@show',['id'=>$payment->id]) }}" class="modalMd" title="Show Data" data-toggle="modal" data-target="#modalMd"><img src="{{asset('images/proofs/'.$payment->proof_image)}}" width="30px;" height="30px;"/></a></td>
-                                                                        <td>
-                                                                            {{-- <a href="{{ action('VisionController@annotateImage',['proof_image'=>$payment->proof_image]) }}">Cek</a> |  --}}
-                                                                            <a class="btn btn-sm btn-outline-primary" href="{{url('payments/'.$payment->id)}}">
-                                                                                <i class="la la-eye"></i>
-                                                                            </a>
-                                                                            <a class="btn btn-sm btn-secondary btn-danger" href="#" value="{{ action('PaymentController@destroy',['id'=>$payment->id]) }}">
-                                                                                <i class="la la-trash-o"></i>
-                                                                            </a>
-                                                                        </td>
-                                                                    </tr>
-                                                                @endforeach
-                                                            </tbody>
-                                                        </table>
+                                                            <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                        <th scope="col">#</th>
+                                                                        <th scope="col">Nama</th>
+                                                                        <th scope="col">NIK</th>
+                                                                        <th scope="col">Listening</th>
+                                                                        <th scope="col">Grammar</th>
+                                                                        <th scope="col">Reading</th>
+                                                                        <th scope="col">Total</th>
+                                                                        <th scope="col"><i class="la la-ellipsis-h"></i></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach ($grade_generals as $grade)
+                                                                            <tr>
+                                                                                <th scope="row">{{$grade->id}}</th>
+                                                                                <th scope="row">{{$grade->fullname}}</th>
+                                                                                <td>{{$grade->nik}}</td>
+                                                                                <td>{{$grade->listening}}</td>
+                                                                                <td>{{$grade->grammar}}</td> 
+                                                                                <td>{{$grade->reading}}</td>
+                                                                                <td>{{$grade->total_score}}</td>
+                                                                                <td>
+                                                                                    {!! Form::open(['route' => ['grades.show', $grade->id], 'method' => 'GET']) !!}   
+                                                                                    <button type="submit" class="btn btn-sm btn-outline-primary">
+                                                                                        <i class="la la-eye"></i>
+                                                                                    </button>
+                                                                                    {!! Form::close() !!}
+                                                                                    
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    </tbody>
+                                                                </table>
                                                     </div>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="gradestudent-icon" role="tabpanel" aria-labelledby="gradestudent-tab">
+                                                    <div class="col-sm-12">
+                                                        {!! Form::open(['route' => 'grades.store', 'files' => false, 'method' => 'POST  ']) !!}
+
+                                                        <div class="form-group">
+                                                            <label style="margin-top:16px;">Pilih Mahasiswa</label>
+                                                            <select class="form-control" name="participant_id">
+                                                                @foreach($students as $student)
+                                                                <option value="{{$student->participant_id}}">{{ $student->fullname }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label>Listening</label>
+                                                                {{ Form::text('listening', '', array('class' => 'form-control')) }}
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label>Grammar</label>
+                                                                    {{ Form::text('grammar', '', array('class' => 'form-control')) }}
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label>Reading</label>
+                                                                    {{ Form::text('reading', '', array('class' => 'form-control')) }}
+                                                            </div>
+                                                            {{-- <div class="form-group">
+                                                                    <label>Total Score</label>
+                                                                    {{ Form::text('total_score', '', array('class' => 'form-control')) }}
+                                                            </div> --}}
+
+                                                            <div class="form-group">
+                                                                    <button type="submit" class="btn btn-lg btn-primary">
+                                                                        <i class="la la-check">Simpan</i>
+                                                                    </button>
+                                                                    
+                                                            </div>    
+                                                            {!! Form::close() !!}
+                                                        </div>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="gradegeneral-icon" role="tabpanel" aria-labelledby="gradegeneral-tab">
+                                                        <div class="col-sm-12">
+                                                                {!! Form::open(['route' => 'grades.store', 'files' => false, 'method' => 'POST  ']) !!}
+        
+                                                                <div class="form-group">
+                                                                    <label style="margin-top:16px;">Pilih Peserta Umum</label>
+                                                                    <select class="form-control" name="participant_id">
+                                                                        @foreach($generals as $general)
+                                                                        <option value="{{$general->participant_id}}">{{ $general->fullname }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                        <label>Listening</label>
+                                                                        {{ Form::text('listening', '', array('class' => 'form-control')) }}
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                            <label>Grammar</label>
+                                                                            {{ Form::text('grammar', '', array('class' => 'form-control')) }}
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                            <label>Reading</label>
+                                                                            {{ Form::text('reading', '', array('class' => 'form-control')) }}
+                                                                    </div>
+                                                                    {{-- <div class="form-group">
+                                                                            <label>Total Score</label>
+                                                                            {{ Form::text('total_score', '', array('class' => 'form-control')) }}
+                                                                    </div> --}}
+        
+                                                                    <div class="form-group">
+                                                                            <button type="submit" class="btn btn-lg btn-primary">
+                                                                                <i class="la la-check">Simpan</i>
+                                                                            </button>
+                                                                            
+                                                                    </div>    
+                                                                    {!! Form::close() !!}
+                                                                </div>
                                                 </div>
                                             </div>
                                         </div>

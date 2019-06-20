@@ -14,13 +14,20 @@ class GradeController extends Controller
      */
     public function index()
     {
-        $students = \App\Student::alreadyPaid();
-        $generals = \App\General::alreadyPaid();
-        $grades = \App\Grade::all();
+        $students = \App\Payment::getStudentPaymentsPaid();
+        $generals = \App\Payment::getGeneralPaymentsPaid();
+        $grade_students = \App\Grade::join('participants', 'participants.id', '=', 'grades.participant_id')
+                ->join('students', 'students.participant_id', 'participants.id')
+                ->where('participants.is_student', 1)->get();
+        $grade_generals = \App\Grade::join('participants', 'participants.id', '=', 'grades.participant_id')
+                ->join('generals', 'generals.participant_id', 'participants.id')
+                ->where('participants.is_student', 0)->get();
+        // dd($grade_generals);   
         return view('admin.grades.index')->with([
             'students' => $students,
             'generals' => $generals,
-            'grades' => $grades
+            'grade_students' => $grade_students,
+            'grade_generals' => $grade_generals
         ]);
 
     }
@@ -43,7 +50,23 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $grade = new \App\Grade();
+        $grade->participant_id = $request->participant_id;
+        $grade->listening = $request->listening;
+        $grade->grammar = $request->grammar;
+        $grade->reading = $request->reading;
+        $a = (int) $request->listening;
+        $b = (int) $request->grammar;
+        $c = (int) $request->reading;
+        $total = $a + $b + $c;
+        $grade->total_score = $total;
+        $grade->save();
+
+        $payment = \App\Payment::find($grade->participant_id);
+        $payment->status = 2;
+        $payment->save();
+
+        return redirect('grades');
     }
 
     /**

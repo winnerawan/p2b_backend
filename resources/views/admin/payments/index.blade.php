@@ -99,14 +99,22 @@
                                                                         <td>{{$payment->no_ref}}</td>
                                                                         <td><a href="#" value="{{ action('PaymentController@show',['id'=>$payment->id]) }}" class="modalMd" title="Show Data" data-toggle="modal" data-target="#modalMd"><img src="{{asset('images/proofs/'.$payment->proof_image)}}" width="30px;" height="30px;"/></a></td>
                                                                         <td>
-                                                                            {{-- <a href="{{ action('VisionController@annotateImage',['proof_image'=>$payment->proof_image]) }}">Cek</a> |  --}}
-                                                                            <a class="btn btn-sm btn-outline-primary" href="{{url('payments/'.$payment->id)}}">
-                                                                                <i class="la la-eye"></i>
-                                                                            </a>
-                                                                            <a class="btn btn-sm btn-secondary btn-danger" href="#" value="{{ action('PaymentController@destroy',['id'=>$payment->id]) }}">
-                                                                                <i class="la la-trash-o"></i>
-                                                                            </a>
-                                                                        </td>
+                                                                                {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
+                                                                                <button type="submit" class="btn btn-sm btn-outline-primary">
+                                                                                    <i class="la la-eye"></i>
+                                                                                </button>
+                                                                                {!! Form::close() !!}
+                                                                                {!! Form::open(['route' => ['payments.update', $payment->id], 'method' => 'PUT']) !!}   
+                                                                                <button type="submit" class="btn btn-sm btn-outline-primary">
+                                                                                    <i class="la la-check"></i>
+                                                                                </button>
+                                                                                {!! Form::close() !!}
+                                                                                {!! Form::open(['route' => ['payments.destroy', $payment->id], 'method' => 'DELETE']) !!}   
+                                                                                <button class="btn btn-sm btn-secondary btn-danger" type="submit">
+                                                                                    <i class="la la-trash-o"></i>
+                                                                                </button>
+                                                                                {!! Form::close() !!}
+                                                                            </td>
                                                                     </tr>
                                                                 @endforeach
                                                             </tbody>

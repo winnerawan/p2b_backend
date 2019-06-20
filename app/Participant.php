@@ -11,6 +11,10 @@ class Participant extends Authenticatable
         'email', 'password',
     ];
 
+    public function payments() {
+        return $this->hasMany(Payment::class);
+    }
+
     public function student() {
         return $this->hasMany(Student::class);
     }
