@@ -63,7 +63,7 @@ class ApiStudentController extends Controller
 
     public function insertDataGeneral(Request $request) {
             $general = new \App\General();
-            $general->participant_id = $request->participant->id;
+            $general->participant_id = $request->participant_id;
             $general->no_reg = $request->no_reg;
             $general->nik = $request->nik;
             $general->fullname = $request->fullname;
