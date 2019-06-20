@@ -16,7 +16,7 @@ class CreateProgramStudiesTable extends Migration
         Schema::create('program_studies', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned(false);
             $table->bigInteger('faculty_id');
-            $table->string('name');
+            $table->string('name', 100);
             $table->timestamps();
         });
     }
