@@ -15,7 +15,7 @@ class CreateFacultiesTable extends Migration
     {
         Schema::create('faculties', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned(false);
-            $table->string('name');
+            $table->string('name', 100);
             $table->timestamps();
         });
     }

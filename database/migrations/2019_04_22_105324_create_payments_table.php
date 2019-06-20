@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id')->unsigned(false);
             $table->bigInteger('participant_id');
             $table->bigInteger('bank_id');
-            $table->string('no_ref');
+            $table->string('no_ref', 50);
             $table->string('proof_image');
             $table->integer('status')->default(0);
             $table->timestamps();

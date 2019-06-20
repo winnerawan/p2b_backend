@@ -15,8 +15,8 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned(false);
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('email', 50)->unique();
+            $table->string('password', 128);
             $table->string('fcm_token');
             $table->integer('is_student')->default(1);
             $table->timestamps();

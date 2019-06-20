@@ -16,11 +16,11 @@ class CreateGeneralsTable extends Migration
         Schema::create('generals', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned(false);
             $table->bigInteger('participant_id');
-            $table->string('no_reg');
-            $table->string('nik');
-            $table->string('fullname');
-            $table->string('dob');
-            $table->string('phone');
+            $table->string('no_reg', 50);
+            $table->string('nik', 25);
+            $table->string('fullname', 100);
+            $table->string('dob', 50);
+            $table->string('phone', 15);
             $table->timestamps();
         });
     }
