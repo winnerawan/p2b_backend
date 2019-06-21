@@ -49,7 +49,7 @@
                                                                         <td>{{$payment->fullname}}</td> 
                                                                         <td>{{$payment->bank_name}}</td>
                                                                         <td>{{$payment->no_ref}}</td>
-                                                                        <td><a href="{{url('')}}"><img src="{{ $payment->proof_image }}" width="30px;" height="30px;"/></a></td>
+                                                                        <td><a href="{{$payment->proof_image}}"><img src="{{ $payment->proof_image }}" width="30px;" height="30px;"/></a></td>
                                                                         <td>
                                                                             {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
                                                                             <button type="submit" class="btn btn-sm btn-outline-primary">
@@ -97,7 +97,7 @@
                                                                         <td>{{$payment->fullname}}</td>
                                                                         <td>{{$payment->bank_name}}</td>
                                                                         <td>{{$payment->no_ref}}</td>
-                                                                        <td><a href="#" value="{{ action('PaymentController@show',['id'=>$payment->id]) }}" class="modalMd" title="Show Data" data-toggle="modal" data-target="#modalMd"><img src="{{asset('images/proofs/'.$payment->proof_image)}}" width="30px;" height="30px;"/></a></td>
+                                                                        <td><a href="{{ $payment->proof_image }}" value="{{ action('PaymentController@show',['id'=>$payment->id]) }}" class="modalMd" title="Show Data" data-toggle="modal" data-target="#modalMd"><img src="{{$payment->proof_image}}" width="30px;" height="30px;"/></a></td>
                                                                         <td>
                                                                                 {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
                                                                                 <button type="submit" class="btn btn-sm btn-outline-primary">

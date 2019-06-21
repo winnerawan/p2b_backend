@@ -1,3 +1,7 @@
+c
+
+
+
 <?php
 
 namespace App\Http\Controllers\Api;
@@ -101,22 +105,11 @@ class ApiStudentController extends Controller
     
         $image = $request->file('proof_image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
-        //$location = public_path('images/proofs/' . $filename);
-        $location = "/home/skripsi/p2b_backend/public/images/proofs/" .$filename;
-        $url_image = "http://eapt.skripsi.pro/images/proofs/" .$filename;
+        $location = public_path('images/proofs/' . $filename);
+        // $location = "/var/www/helb/service/public/uploads/cards/" .$filename;
+        $url_image = "https://api.letshelb.me/uploads/cards/" .$filename;
         Image::make($image)->resize(800, 600)->save($location);
     
         return $url_image;
     }
-
-
-
-	public function checkPayment($participant_id) {
-		$isDone = \App\Payment::where('participant_id', $participant_id)->get()->count();
-//		dd($isDone);
-		if ($isDone>0) {
-			return response()->json(['error' => false, 'is_done' => true]);
-		} 
-		return response()->json(['error' => false, 'is_done' => false]);
-	}
 }

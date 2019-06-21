@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ Route::post('student', 'Api\ApiStudentController@insertDataStudent');
 Route::post('general', 'Api\ApiStudentController@insertDataGeneral');
 Route::post('pay', 'Api\ApiStudentController@pay');
 
+Route::get('checkpayment/{participant_id}', 'Api\ApiStudentController@checkPayment');
 Route::get('studentprofile/{participant_id}', 'Api\UtilsController@studentProfile');
 Route::get('generalprofile/{participant_id}', 'Api\UtilsController@generalProfile');
 Route::get('faculties', 'Api\UtilsController@faculties');
