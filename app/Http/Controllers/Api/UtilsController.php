@@ -35,4 +35,15 @@ class UtilsController extends Controller
             return response()->json(['error' => false, 'general' => $general]); 
         }
     }
+
+    public function sendFcmToken(Request $request) {
+        $participant = \App\Participant::find($request->participant_id);
+        $participant->fcm_token = $request->fcm_token;
+        $participant->save();
+
+        if ($participant) {
+            return response()->json(['error' => false, 'message' => 'Token Saved!']); 
+        }
+        return response()->json(['error' => true, 'message' => 'Can\'t Save Token!']); 
+    }
 }
