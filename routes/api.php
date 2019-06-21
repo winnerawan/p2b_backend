@@ -23,7 +23,7 @@ Route::post('login', 'Api\ApiStudentController@login');
 Route::post('student', 'Api\ApiStudentController@insertDataStudent');
 Route::post('general', 'Api\ApiStudentController@insertDataGeneral');
 Route::post('pay', 'Api\ApiStudentController@pay');
-Route::post('token', 'Api\UtilsController@sendFcmToken');
+Route::put('token', 'Api\UtilsController@sendFcmToken');
 
 Route::get('checkpayment/{participant_id}', 'Api\ApiStudentController@checkPayment');
 Route::get('studentprofile/{participant_id}', 'Api\UtilsController@studentProfile');
