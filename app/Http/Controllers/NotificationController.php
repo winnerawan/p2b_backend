@@ -7,6 +7,10 @@ use Fcm;
 
 class NotificationController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     public function index() {
         $options = array(
                 [
@@ -56,5 +60,7 @@ class NotificationController extends Controller
             'title' => $request->title,
             'body' => $request->body
         ])->send();
+
+        return redirect('notifications');
     }
 }
