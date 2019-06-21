@@ -27,6 +27,10 @@ Route::resource('/generals', 'GeneralController');
 Route::resource('/students', 'StudentController');
 Route::resource('/payments', 'PaymentController');
 Route::resource('/grades', 'GradeController');
+Route::resource('/announcements', 'AnnouncementController');
+Route::resource('/informations', 'InformationController');
+
+Route::get('/settings', 'SettingController@index');
 Route::get('/notifications', 'NotificationController@index');
 Route::post('/notifications', 'NotificationController@store');
 Route::get('/vision', 'VisionController@annotateImage');

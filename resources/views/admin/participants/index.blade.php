@@ -75,14 +75,11 @@
                                                                         <th scope="row">{{$i+=1}}</th>
                                                                         <td>{{$participant->email}}</td>
                                                                         <td>
-                                                                            <a id="{{ $participant->id }}" class="btn btn-sm btn-outline-primary modalMd" href="#" value="{{ action('ParticipantController@edit',['id'=>$participant->id]) }}" title="" data-toggle="modal" data-target="#modalMd">
-                                                                                <i class="la la-edit"></i>
-                                                                            </a>
+                                                                            
                                                                             <a class="btn btn-sm btn-secondary btn-danger" href="">
                                                                                 <i class="la la-trash-o"></i>
                                                                             </a>
                                                                         </td>
-                                                                        
                                                                     </tr>
                                                                 @endforeach
                                                             </tbody>
@@ -115,9 +112,9 @@
                                                                         <td>{{$student->program->faculty->name}}</td>
                                                                         <td>{{$student->program->name}}</td>
                                                                         <td>
-                                                                            <a class="btn btn-sm btn-outline-primary" href="{{url('students/'.$student->id.'/edit')}}">
-                                                                                <i class="la la-edit"></i>
-                                                                            </a>
+                                                                                <a class="btn btn-sm btn-secondary btn-danger" href="">
+                                                                                        <i class="la la-trash-o"></i>
+                                                                                </a>
                                                                             {{-- <a class="btn btn-sm btn-secondary btn-danger" href="">
                                                                                 <i class="la la-trash-o"></i>
                                                                             </a> --}}
@@ -152,9 +149,9 @@
                                                                         <td>{{$general->dob}}</td>
                                                                         <td>{{$general->phone}}</td>
                                                                         <td>
-                                                                            <a class="btn btn-sm btn-outline-primary" href="{{url('generals/'.$general->id.'/edit')}}">
-                                                                                <i class="la la-edit"></i>
-                                                                            </a>
+                                                                                <a class="btn btn-sm btn-secondary btn-danger" href="">
+                                                                                        <i class="la la-trash-o"></i>
+                                                                                </a>
                                                                             {{-- <a class="btn btn-sm btn-secondary btn-danger" href="">
                                                                                 <i class="la la-trash-o"></i>
                                                                             </a> --}}

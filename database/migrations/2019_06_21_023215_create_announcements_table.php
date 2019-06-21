@@ -15,7 +15,7 @@ class CreateAnnouncementsTable extends Migration
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->varchar('title', 100);
+            $table->string('title', 100);
             $table->longText('description');
             $table->timestamps();
         });

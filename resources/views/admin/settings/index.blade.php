@@ -53,7 +53,7 @@
                     </div>
                 </div>
 @endsection
-@section('extrascripts')
+@section('extra-js')
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 
@@ -61,34 +61,10 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
     <script>
-       $('#summernote').summernote({
-            minHeight: 200,
-            placeholder: 'Write here ...',
-            focus: false,
-            airMode: false,
-            fontNames: ['Roboto', 'Calibri', 'Times New Roman', 'Arial'],
-            fontNamesIgnoreCheck: ['Roboto', 'Calibri'],
-            dialogsInBody: true,
-            dialogsFade: true,
-            disableDragAndDrop: false,
-            toolbar: [
-                // [groupName, [list of button]]
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['para', ['style', 'ul', 'ol', 'paragraph']],
-                ['fontsize', ['fontsize']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['height', ['height']],
-                ['misc', ['undo', 'redo', 'print', 'help', 'fullscreen']]
-            ],
-            popover: {
-                air: [
-                ['color', ['color']],
-                ['font', ['bold', 'underline', 'clear']]
-                ]
-            },
-            print: {
-                //'stylesheetUrl': 'url_of_stylesheet_for_printing'
-            }
-        });
+    $('#summernote').summernote({
+        height: 150,   //set editable area's height
+        theme: 'paper',
+        airMode: false
+    });
     </script>
 @endsection

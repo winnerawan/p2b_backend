@@ -36,37 +36,5 @@ $(document).ready(function(){
         $("li[data-sidebar='tables']").addClass('active'); 
     }
 
-    var htmlLicense = 
-    "<div class='footer-license pt-2 pb-2 bg-white'>"+
-        "<div class='container'>"+
-            "<div class='row no-gutters'>"+
-                "<div class='col-sm-6'>"+
-                    "© 2017 All rights reserved"+
-                    "<a href='https://marvlous.com' class='text-dark'>"+
-                    "Marvlous.com"+
-                    "</a>"+
-                "</div>"+
-                "<div class='col-sm-6 text-right'>"+
-                    "<ul class='list-inline m-0'>"+
-                        "<li class='facebook list-inline-item'>"+
-                            "<a href='https://www.facebook.com/marvlouscom/' target='_blank'>"+
-                                "<i class='fab fa-facebook-f'></i>"+
-                            "</a>"+
-                        "</li>"+
-                        "<li class='twitter list-inline-item'>"+
-                            "<a href='https://twitter.com/marvlouscom/' target='_blank'>"+
-                                "<i class='fab fa-twitter'></i>"+
-                            "</a>"+
-                        "</li>"+
-                        "<li class='instagram list-inline-item'>"+
-                            "<a href='https://www.instagram.com/marvlouscom/' target='_blank'>"+
-                                "<i class='fab fa-instagram'></i>"+
-                            "</a>"+
-                        "</li>"+
-                    "</ul>"+
-                "</div>"+
-            "</div>"+
-        "</div>"+
-    "</div>"
-    $('.main-content .dashboard').after(htmlLicense);
+    
 });
