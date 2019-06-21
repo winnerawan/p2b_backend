@@ -39,9 +39,9 @@
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Kepada</label><br/>
-                                                            <select id="is_student">
+                                                            <select name="option_id" id="option_id">
                                                                         @foreach($notif_options as $opt)
-                                                                            <option value="{{$opt['is_student']}}">{{$opt['name']}}</option>
+                                                                            <option value="{{$opt['option_id']}}">{{$opt['name']}}</option>
                                                                         @endforeach
                                                             </select>
                                                         </div>
@@ -52,7 +52,7 @@
                                                         <!-- textarea -->
                                                         <div class="form-group">
                                                             <label>Keterangan</label>
-                                                            <textarea name="description" class="form-control" rows="3" placeholder="Enter ..." required></textarea>
+                                                            <textarea name="body" class="form-control" rows="3" placeholder="Enter ..." required></textarea>
                                                         </div>
                                                         
                                                         <div class="form-group">

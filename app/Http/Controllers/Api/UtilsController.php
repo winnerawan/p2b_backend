@@ -37,7 +37,7 @@ class UtilsController extends Controller
     }
 
     public function sendFcmToken(Request $request) {
-	$id = $request['participant_id'];
+	    $id = $request['participant_id'];
         $participant = \App\Participant::find($id);
         $participant->fcm_token = $request['fcm_token'];
         $participant->save();
