@@ -66,7 +66,8 @@ class GradeController extends Controller
         $grade->total_score = $total;
         $grade->save();
 
-        $payment = \App\Payment::find($grade->participant_id);
+        $payment = \App\Payment::where('participant_id', $grade->participant_id)->get()->first();
+        // dd($payment);
         $payment->status = 2;
         $payment->save();
 
