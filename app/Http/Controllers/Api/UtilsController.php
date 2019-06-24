@@ -47,4 +47,18 @@ class UtilsController extends Controller
         }
         return response()->json(['error' => true, 'message' => 'Can\'t Save Token!', 'p' => $participant]); 
     }
+
+
+    public function getAnnouncements(Request $request) {
+        $announcements = \App\Announcement::all();
+        if ($announcements) {
+            return response()->json(['error' => false, 'announcements' => $announcements]);
+        }
+        return response()->json(['error' => true]);
+    }
+
+    public function getTestDate() {
+        $date = \App\Setting::find(1)->get('test_date')->first();
+        return response()->json($date);
+    }
 }

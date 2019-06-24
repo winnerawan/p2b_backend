@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/jvectormap.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/widgets.css') }}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/at.js/1.4.0/css/jquery.atwho.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/apple-icon-60x60.png') }}">
@@ -54,6 +55,8 @@
     <script src="{{ asset('admin/js/Chart.bundle.min.js') }}"></script>    
     <script src="{{ asset('admin/js/index.js') }}"></script>
     <script src="{{ asset('admin/js/default.js') }}"></script>
+    
+
         @yield('extra-js')    
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script> 
 </body>

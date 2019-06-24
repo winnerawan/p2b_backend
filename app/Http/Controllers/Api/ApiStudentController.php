@@ -113,12 +113,19 @@ class ApiStudentController extends Controller
 
 	public function checkPayment($participant_id) {
 		$isDone = \App\Payment::where('participant_id', $participant_id)->get()->count();
-//		dd($isDone);
 		if ($isDone>0) {
 			return response()->json(['error' => false, 'is_done' => true]);
 		} 
 		return response()->json(['error' => false, 'is_done' => false]);
     }
     
+
+    public function getGrade($participant_id) {
+        $grade = \App\Grade::where('participant_id', $participant_id)->get();
+        if (sizeof($grade)>0) {
+            return response()->json(['error' => false, 'grade' => $grade]);
+        }
+        return response()->json(['error' => true, 'grade' => NULL]);
+    }
     
 }

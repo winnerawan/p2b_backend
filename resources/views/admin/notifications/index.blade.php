@@ -56,7 +56,7 @@
                                                         </div>
                                                         
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i> Kirim</button>
+                                                            <button type="submit" class="btn btn-primary"> <i class="fa fa-check"></i> Kirim</button>
                                                         </div>
                                                     </form>
                                                             </div>
