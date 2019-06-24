@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Fcm;
 
 class GradeController extends Controller
 {
@@ -68,6 +69,15 @@ class GradeController extends Controller
         $payment = \App\Payment::find($grade->participant_id);
         $payment->status = 2;
         $payment->save();
+
+        $participant = \App\Participant::find($grade->participant_id);
+        $recp[] = $participant->fcm_token;
+
+        $setting = \App\Setting::find(1);
+        Fcm::to($recp)->notification([
+            'title' => 'EAPT UNIPMA',
+            'body' => $setting->message_grade_out
+        ])->send();
 
         return redirect('grades');
     }
