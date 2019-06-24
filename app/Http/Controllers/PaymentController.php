@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Fcm;
 
 class PaymentController extends Controller
 {
@@ -80,6 +81,16 @@ class PaymentController extends Controller
         $payment = \App\Payment::findOrFail($id);
         $payment->status = 1;
         $payment->save();
+
+        $participant = \App\Participant::find($payment->participant_id);
+        $recp[] = $participant->fcm_token;
+
+        $setting = \App\Setting::find(1);
+        Fcm::to($recp)->notification([
+            'title' => 'EAPT UNIPMA',
+            'body' => $setting->message_payment_success
+        ])->send();
+
         return redirect('payments');
     }
 
@@ -93,6 +104,17 @@ class PaymentController extends Controller
     {
         $payment = \App\Payment::findOrFail($id);
         $payment->delete();
+
+        $participant = \App\Participant::find($payment->participant_id);
+        $recp[] = $participant->fcm_token;
+
+        $setting = \App\Setting::find(1);
+        Fcm::to($recp)->notification([
+            'title' => 'EAPT UNIPMA',
+            'body' => $setting->message_payment_failed
+        ])->send();
+
+
         return redirect('payments');
     }
 

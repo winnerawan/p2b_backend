@@ -51,11 +51,11 @@
                                                                         <td>{{$payment->no_ref}}</td>
                                                                         <td><a href="{{$payment->proof_image}}"><img src="{{ $payment->proof_image }}" width="30px;" height="30px;"/></a></td>
                                                                         <td>
-                                                                            {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
+                                                                            {{-- {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
                                                                             <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                 <i class="la la-eye"></i>
                                                                             </button>
-                                                                            {!! Form::close() !!}
+                                                                            {!! Form::close() !!} --}}
                                                                             {!! Form::open(['route' => ['payments.update', $payment->id], 'method' => 'PUT']) !!}   
                                                                             <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                 <i class="la la-check"></i>
@@ -99,10 +99,10 @@
                                                                         <td>{{$payment->no_ref}}</td>
                                                                         <td><a href="{{ $payment->proof_image }}" value="{{ action('PaymentController@show',['id'=>$payment->id]) }}" class="modalMd" title="Show Data" data-toggle="modal" data-target="#modalMd"><img src="{{$payment->proof_image}}" width="30px;" height="30px;"/></a></td>
                                                                         <td>
-                                                                                {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
+                                                                                {{-- {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
                                                                                 <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                     <i class="la la-eye"></i>
-                                                                                </button>
+                                                                                </button> --}}
                                                                                 {!! Form::close() !!}
                                                                                 {!! Form::open(['route' => ['payments.update', $payment->id], 'method' => 'PUT']) !!}   
                                                                                 <button type="submit" class="btn btn-sm btn-outline-primary">
