@@ -79,7 +79,7 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $announcement = new \App\Announcement();
+        $announcement = \App\Announcement::find($id);
         $announcement->title = $request->input('title');
         $announcement->description = $request->input('description');
         $announcement->save();

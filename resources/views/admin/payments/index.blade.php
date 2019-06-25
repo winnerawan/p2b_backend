@@ -102,8 +102,8 @@
                                                                                 {{-- {!! Form::open(['route' => ['payments.show', $payment->id], 'method' => 'GET']) !!}   
                                                                                 <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                     <i class="la la-eye"></i>
-                                                                                </button> --}}
-                                                                                {!! Form::close() !!}
+                                                                                </button> 
+                                                                                {!! Form::close() !!} --}}
                                                                                 {!! Form::open(['route' => ['payments.update', $payment->id], 'method' => 'PUT']) !!}   
                                                                                 <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                     <i class="la la-check"></i>

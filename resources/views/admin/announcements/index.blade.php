@@ -42,13 +42,15 @@
                                                                         <th scope="row">{{$i+1}}</th>
                                                                             <td>{{$announcement->title}}</td>
                                                                             <td>{{$announcement->description}}</td>
-                                                                            <td>
+                                                                            <td colspan="3">
                                                                                     <a class="btn btn-sm btn-outline-primary" href="{{url('announcements/'.$announcement->id.'/edit')}}">
                                                                                         <i class="la la-edit"></i>
                                                                                     </a>
-                                                                                    <a class="btn btn-sm btn-outline-danger" href="{{url('announcements/'.$announcement->id.'/edit')}}">
-                                                                                        <i class="la la-trash"></i>
-                                                                                    </a>
+                                                                                    {!! Form::open(['route' => ['announcements.destroy', $announcement->id], 'method' => 'DELETE']) !!}   
+                                                                                        <button class="btn btn-sm btn-secondary btn-danger" type="submit">
+                                                                                            <i class="la la-trash-o"></i>
+                                                                                        </button>
+                                                                                    {!! Form::close() !!}
                                                                             </td>
                                                                         </tr>
                                                                     @endforeach
@@ -60,11 +62,11 @@
                                                     {!! Form::open(['route' => 'announcements.store', 'data-parsley-validate' => '', 'files' => false, 'method' => 'POST  ']) !!}
                                                         <!-- text input -->
                                                         <div style="margin-top:8px; margin-left:16px; margin-right:16px;" class="form-group">
-                                                            <input name="title" type="text" class="form-control" placeholder="Judul ...">
+                                                            <input required name="title" type="text" class="form-control" placeholder="Judul ...">
                                                         </div>
                                                         <div class="col-sm-12">
                                                                 <div style="margin-top:8px;" class="form-group">
-                                                                        <textarea id="summernote" name="description"></textarea>
+                                                                        <textarea required id="summernote" name="description"></textarea>
                                                                 </div>
                                                         </div>
 
