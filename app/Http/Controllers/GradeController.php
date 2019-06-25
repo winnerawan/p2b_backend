@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Fcm;
+use PDF;
 
 class GradeController extends Controller
 {
@@ -89,9 +90,19 @@ class GradeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $participant = \App\Participant::find($id);
+        $fullname = $request->fullname;
+
+        $fname[] = $fullname;
+        $fullnames = array('fullname' => $fullname);
+
+        // dd($fullnames);
+        $pdf = PDF::loadView('admin.grades.certificate', $fullnames);
+        return $pdf->download('sertifikat_'.$fullname.'.pdf');
+
+        // return view('admin.grades.certificate')->with(['fullname' => $fullname]);
     }
 
     /**

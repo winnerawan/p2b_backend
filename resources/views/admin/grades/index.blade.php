@@ -58,6 +58,7 @@
                                                                         <td>{{$grade->total_score}}</td>
                                                                         <td>
                                                                             {!! Form::open(['route' => ['grades.show', $grade->id], 'method' => 'GET']) !!}   
+                                                                            <input name="fullname" value="{{$grade->fullname}}" type="hidden">
                                                                             <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                 <i class="la la-eye"></i>
                                                                             </button>
@@ -96,7 +97,8 @@
                                                                                 <td>{{$grade->reading}}</td>
                                                                                 <td>{{$grade->total_score}}</td>
                                                                                 <td>
-                                                                                    {!! Form::open(['route' => ['grades.show', $grade->id], 'method' => 'GET']) !!}   
+                                                                                    {!! Form::open(['route' => ['grades.show', $grade->id], 'method' => 'GET']) !!}  
+                                                                                    <input name="fullname" value="{{$grade->fullname}}" type="hidden">
                                                                                     <button type="submit" class="btn btn-sm btn-outline-primary">
                                                                                         <i class="la la-eye"></i>
                                                                                     </button>
