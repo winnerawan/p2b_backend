@@ -41,7 +41,7 @@
                                                                         <tr>
                                                                         <th scope="row">{{$i+1}}</th>
                                                                             <td>{{$announcement->title}}</td>
-                                                                            <td>{{$announcement->description}}</td>
+                                                                            <td>{{str_limit($announcement->description, 20)}}</td>
                                                                             <td colspan="3">
                                                                                     <a class="btn btn-sm btn-outline-primary" href="{{url('announcements/'.$announcement->id.'/edit')}}">
                                                                                         <i class="la la-edit"></i>
